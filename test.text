@@ -1,0 +1,48 @@
+/api/register
+{
+  "name": "Aditya",
+  "email": "aditya@example.com",
+  "password": "password123"
+}
+
+/api/login{
+  "email": "aditya@example.com",
+  "password": "password123"
+}
+
+Response :
+{
+  "message": "Login successful",
+  "token": "1|your_sanctum_token_here"
+}
+
+/api/categories{
+  "name": "Technology"
+}
+
+/api/posts
+{
+  "title": "My First Post",
+  "content": "This is a sample post about Laravel APIs.",
+  "categories": [1]
+}
+
+Get all Posts
+GET /api/posts
+Get Post by ID
+GET /api/posts/1
+Update Post
+PUT /api/posts/1
+{
+  "title": "Updated Post Title",
+  "content": "Updated post content",
+  "categories": [1]
+}
+Delete Post
+DELETE /api/posts/1
+
+Schema::create('category_post', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('category_id')->constrained()->onDelete('cascade');
+    $table->foreignId('post_id')->constrained()->onDelete('cascade');
+});
