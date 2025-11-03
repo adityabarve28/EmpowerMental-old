@@ -49,3 +49,10 @@ class AuthController extends Controller
         return response()->json(['message' => 'Logged out successfully']);
     }
 }
+/*
+composer require laravel/sanctum
+php artisan migrate
+\App\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+'auth:sanctum',
+
+*/
